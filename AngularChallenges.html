@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Challenges (From TTA LMS)</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+	<!--uses the ng-app directive from AngularJS to display the result of the math operation
+		in the curly braces. Without the ng-app directive, it will just display it as text,
+		like "{{ 3 + 5 }}". In the below example, the ng-app directive refers to an
+		HTML element with the name "myApp", in which the Angular application will run.
+
+		Also uses the ng-controller directive to refer to the controller the application
+		will use, which in this case is named "myController"
+		-->
+	<div ng-app="myApp" ng-controller="myController">
+		<p>My first expression: {{ 3 + 5 }}</p>
+
+		<b><p>My name is {{ firstName + " " + lastInit }}</p></b>
+
+		<!--uses the ng-init attribute to initialize the "artistName" ng-model variable
+			with a starting value, which the user can then change by typing
+			into the <input> element-->
+		<div ng-init="artistName='SwuM'">
+			<p>Favorite Artist Name: <input type="text" ng-model="artistName"></p>
+			<p>You wrote: {{ artistName }}</p>
+		</div>
+	</div>
+
+	<script>
+		//defines and sets up the Angular module in which the application will run
+		//and names it "myApp"
+		var app = angular.module("myApp", []);
+
+		//defines the controller for the "myApp" module and names it "myController".
+		//Also defines the pieces of the data model (think of it similar to properties
+		//of a class, in the sense that they're pieces of info inherent to this
+		//data model and can be referenced in other parts of the module)
+		app.controller("myController", function($scope) {
+			//defines the data model values for "firstName" and "lastInit"
+			$scope.firstName = "Levi";
+			$scope.lastInit = "B.";
+		})
+	</script>
+
+</body>
+</html>

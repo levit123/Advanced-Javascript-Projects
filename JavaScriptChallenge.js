@@ -58,3 +58,19 @@ function textReplace()
 	
 	document.getElementById("txtRplc").innerHTML = final;
 }
+
+function tryCatchFunc()
+{
+	//attempts everything in the "try" section, and stops if an exception is thrown
+	try
+	{
+		//intentionally misspelled "alert" so it throws an exception
+		allert("Gabario?");
+	}
+	//handles the exception that occurs
+	catch (err)
+	{
+		//displays the message of the exception
+		document.getElementById("errorTest").innerHTML = err.message;
+	}
+}
